@@ -1,20 +1,11 @@
 // https://adventofcode.com/2022/day/2
 
-use std::{
-    fs::File,
-    io::{BufRead, BufReader, Read, Seek, SeekFrom},
-};
+use std::io::{BufRead, Read, Seek, SeekFrom};
 
-#[derive(Debug)]
-#[allow(dead_code)]
-pub struct Answer {
-    part_1: u32,
-    part_2: u32,
-}
+use super::{get_file_reader, Answer};
 
 pub fn solution() -> std::io::Result<Answer> {
-    let file = File::open("input/aoc_2022/aoc_2022_2.txt")?;
-    let mut reader = BufReader::new(file);
+    let mut reader = get_file_reader("input/aoc_2022/aoc_2022_2.txt")?;
 
     // part 1
     let mut score = 0u32;
