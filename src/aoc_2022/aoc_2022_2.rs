@@ -63,3 +63,20 @@ fn calculate_score(shapes: Vec<&str>) -> u32 {
 
     score
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_solution() {
+        let result = solution().unwrap();
+        assert_eq!(
+            result,
+            Answer {
+                part_1: 11873,
+                part_2: 12014
+            }
+        );
+    }
+}

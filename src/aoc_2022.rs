@@ -3,7 +3,7 @@ use std::{fs::File, io::BufReader};
 pub mod aoc_2022_1;
 pub mod aoc_2022_2;
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 #[allow(dead_code)]
 pub struct Answer {
     part_1: u32,

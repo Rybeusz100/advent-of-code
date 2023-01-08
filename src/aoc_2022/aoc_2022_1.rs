@@ -24,3 +24,20 @@ pub fn solution() -> std::io::Result<Answer> {
         part_2: calories[0..3].iter().sum(),
     })
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_solution() {
+        let result = solution().unwrap();
+        assert_eq!(
+            result,
+            Answer {
+                part_1: 69883,
+                part_2: 207576
+            }
+        );
+    }
+}
