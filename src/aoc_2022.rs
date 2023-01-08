@@ -2,6 +2,7 @@ use std::{fs::File, io::BufReader};
 
 pub mod aoc_2022_1;
 pub mod aoc_2022_2;
+pub mod aoc_2022_3;
 
 #[derive(Debug, PartialEq)]
 #[allow(dead_code)]
