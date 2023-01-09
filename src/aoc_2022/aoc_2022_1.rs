@@ -4,7 +4,7 @@ use std::io::BufRead;
 
 use super::{get_file_reader, Answer};
 
-pub fn solution() -> std::io::Result<Answer> {
+pub fn solution() -> std::io::Result<Answer<u32>> {
     let reader = get_file_reader("input/aoc_2022/aoc_2022_1.txt")?;
     let mut calories: Vec<u32> = vec![0];
 

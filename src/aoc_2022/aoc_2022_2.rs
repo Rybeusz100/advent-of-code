@@ -4,7 +4,7 @@ use std::io::{BufRead, Read, Seek, SeekFrom};
 
 use super::{get_file_reader, Answer};
 
-pub fn solution() -> std::io::Result<Answer> {
+pub fn solution() -> std::io::Result<Answer<u32>> {
     let mut reader = get_file_reader("input/aoc_2022/aoc_2022_2.txt")?;
 
     // part 1

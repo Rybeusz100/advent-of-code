@@ -4,12 +4,13 @@ pub mod aoc_2022_1;
 pub mod aoc_2022_2;
 pub mod aoc_2022_3;
 pub mod aoc_2022_4;
+pub mod aoc_2022_5;
 
 #[derive(Debug, PartialEq)]
 #[allow(dead_code)]
-pub struct Answer {
-    part_1: u32,
-    part_2: u32,
+pub struct Answer<T> {
+    part_1: T,
+    part_2: T,
 }
 
 fn get_file_reader(filename: &str) -> std::io::Result<BufReader<File>> {
