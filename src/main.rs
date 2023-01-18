@@ -8,4 +8,5 @@ fn main() {
     println!("{:#?}", aoc_2022_3::solution().unwrap());
     println!("{:#?}", aoc_2022_4::solution().unwrap());
     println!("{:#?}", aoc_2022_5::solution().unwrap());
+    println!("{:#?}", aoc_2022_6::solution().unwrap());
 }

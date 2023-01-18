@@ -5,6 +5,7 @@ pub mod aoc_2022_2;
 pub mod aoc_2022_3;
 pub mod aoc_2022_4;
 pub mod aoc_2022_5;
+pub mod aoc_2022_6;
 
 #[derive(Debug, PartialEq)]
 #[allow(dead_code)]
