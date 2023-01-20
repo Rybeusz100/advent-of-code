@@ -1,7 +1,6 @@
 // https://adventofcode.com/2022/day/7
 
 use std::{
-    borrow::Borrow,
     cell::RefCell,
     io::BufRead,
     rc::{Rc, Weak},
@@ -64,38 +63,30 @@ pub fn solution() -> std::io::Result<Answer<u64>> {
         }
     }
 
-    let mut max_100000 = Vec::new();
-    update_sizes(&root, &mut max_100000);
+    let mut sizes = Vec::new();
+    update_sizes(&root, &mut sizes);
 
     let needed_to_delete = *root.size.borrow() - (70000000 - 30000000);
-    let mut part_2 = 70000000;
-    find_smallest_to_delete(&root, needed_to_delete, &mut part_2);
+
+    let mut part_2: Vec<u64> = sizes
+        .iter()
+        .filter(|x| **x >= needed_to_delete)
+        .copied()
+        .collect();
+    part_2.sort_unstable();
 
     Ok(Answer {
-        part_1: max_100000.iter().sum(),
-        part_2,
+        part_1: sizes.iter().filter(|x| **x < 100000).sum(),
+        part_2: *part_2.first().unwrap(),
     })
 }
 
-fn update_sizes(root: &Rc<Dir>, max_100000: &mut Vec<u64>) {
+fn update_sizes(root: &Rc<Dir>, sizes: &mut Vec<u64>) {
     for subdir in root.subdirs.borrow_mut().iter_mut() {
-        update_sizes(subdir, max_100000);
+        update_sizes(subdir, sizes);
         *root.size.borrow_mut() += *subdir.size.borrow();
     }
-    if *root.size.borrow() < 100000 {
-        max_100000.push(*root.size.borrow());
-    }
-}
-
-fn find_smallest_to_delete(root: &Rc<Dir>, min: u64, current_smallest: &mut u64) -> u64 {
-    for subdir in root.subdirs.borrow().iter() {
-        let subdir_size = find_smallest_to_delete(subdir.borrow(), min, current_smallest);
-        if subdir_size > min && subdir_size < *current_smallest {
-            *current_smallest = subdir_size
-        }
-    }
-
-    *root.size.borrow()
+    sizes.push(*root.size.borrow());
 }
 
 struct Dir {
