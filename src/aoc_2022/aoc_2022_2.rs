@@ -48,9 +48,7 @@ fn calculate_score(shapes: Vec<&str>) -> u32 {
     let mut score = 0u32;
     match shapes[1] {
         "A" => score += 1,
-
         "B" => score += 2,
-
         "C" => score += 3,
         _ => (),
     };

@@ -8,9 +8,12 @@ macro_rules! time_and_print {
         let start = Instant::now();
         let result = $func;
         let end = Instant::now();
-        println!("{} in {:?}", $message, end.duration_since(start));
-        println!("{:#?}", result);
-        println!();
+        println!(
+            "{} in {:?}\n{:#?}\n",
+            $message,
+            end.duration_since(start),
+            result
+        );
     };
 }
 
@@ -21,4 +24,5 @@ fn main() {
     time_and_print!("AoC 2022 day 4", aoc_2022_4::solution().unwrap());
     time_and_print!("AoC 2022 day 5", aoc_2022_5::solution().unwrap());
     time_and_print!("AoC 2022 day 6", aoc_2022_6::solution().unwrap());
+    time_and_print!("AoC 2022 day 7", aoc_2022_7::solution().unwrap());
 }
