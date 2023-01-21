@@ -3,14 +3,15 @@ use std::time::Instant;
 mod aoc_2022;
 use aoc_2022::*;
 
-macro_rules! time_and_print {
-    ($message:expr, $func:expr) => {
+macro_rules! aoc {
+    ($year:literal, $day:literal, $mod_name:ident) => {
         let start = Instant::now();
-        let result = $func;
+        let result = $mod_name::solution().unwrap();
         let end = Instant::now();
         println!(
-            "{} in {:?}\n{:#?}\n",
-            $message,
+            "AoC {} day {} in {:?}\n{:#?}\n",
+            $year,
+            $day,
             end.duration_since(start),
             result
         );
@@ -18,11 +19,12 @@ macro_rules! time_and_print {
 }
 
 fn main() {
-    time_and_print!("AoC 2022 day 1", aoc_2022_1::solution().unwrap());
-    time_and_print!("AoC 2022 day 2", aoc_2022_2::solution().unwrap());
-    time_and_print!("AoC 2022 day 3", aoc_2022_3::solution().unwrap());
-    time_and_print!("AoC 2022 day 4", aoc_2022_4::solution().unwrap());
-    time_and_print!("AoC 2022 day 5", aoc_2022_5::solution().unwrap());
-    time_and_print!("AoC 2022 day 6", aoc_2022_6::solution().unwrap());
-    time_and_print!("AoC 2022 day 7", aoc_2022_7::solution().unwrap());
+    aoc!(2022, 1, aoc_2022_1);
+    aoc!(2022, 2, aoc_2022_2);
+    aoc!(2022, 3, aoc_2022_3);
+    aoc!(2022, 4, aoc_2022_4);
+    aoc!(2022, 5, aoc_2022_5);
+    aoc!(2022, 6, aoc_2022_6);
+    aoc!(2022, 7, aoc_2022_7);
+    aoc!(2022, 8, aoc_2022_8);
 }
